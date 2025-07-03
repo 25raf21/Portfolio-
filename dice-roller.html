@@ -1,0 +1,98 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dice Roller - Shapes</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #111;
+      color: white;
+      padding-top: 80px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+
+    .shape {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .circle {
+      border-radius: 50%;
+      background: radial-gradient(circle at center, #0ff, #09c);
+      box-shadow: 0 0 20px #0ff;
+    }
+
+    .square {
+      background: linear-gradient(135deg, #ff8, #f90);
+      box-shadow: 0 0 20px #ff0;
+    }
+
+    .triangle {
+      width: 0;
+      height: 0;
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent;
+      border-bottom: 120px solid #f06;
+      box-shadow: 0 0 20px #f06;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 6px;
+      background: #3498db;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 10px #3498db;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    #container {
+      height: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h1>3-Sided Dice Roller</h1>
+  <div id="container">
+    <div id="shape" class="shape circle"></div>
+  </div>
+  <button onclick="rollDice()">Roll</button>
+
+  <script>
+    const shape = document.getElementById('shape');
+    const shapes = ['circle', 'square', 'triangle'];
+
+    function rollDice() {
+      const randomIndex = Math.floor(Math.random() * 3);
+      const newShape = shapes[randomIndex];
+
+      // Reset shape
+      shape.className = 'shape';
+      void shape.offsetWidth; // trigger reflow
+
+      // Add new shape class
+      shape.classList.add(newShape);
+
+      // Animate
+      shape.style.transform = 'rotateY(360deg)';
+      setTimeout(() => {
+        shape.style.transform = 'rotateY(0deg)';
+      }, 400);
+    }
+  </script>
+</body>
+</html>
