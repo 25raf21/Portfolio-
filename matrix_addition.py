@@ -9,10 +9,7 @@ def matrix_addition(matrix1, matrix2):
             row.append(matrix1[i][j] + matrix2[i][j])
         result.append(row)
     return result
-
-# Example
-A = [[1, 2], [3, 4]]
-B = [[5, 6], [7, 8]]
+    
 print("Matrix Addition Result:")
 for row in matrix_addition(A, B):
     print(row)
