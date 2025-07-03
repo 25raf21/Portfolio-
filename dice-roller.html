@@ -1,6 +1,5 @@
 <html>
 <head>
-  <meta charset="UTF-8">
   <title>Dice Roller - Shapes</title>
   <style>
     body {
@@ -66,7 +65,7 @@
   </style>
 </head>
 <body>
-  <h1>3-Sided Dice Roller</h1>
+  <h1>Three Sided Dice Roller</h1>
   <div id="container">
     <div id="shape" class="shape circle"></div>
   </div>
@@ -80,14 +79,14 @@
       const randomIndex = Math.floor(Math.random() * 3);
       const newShape = shapes[randomIndex];
 
-      // Reset shape
+      
       shape.className = 'shape';
-      void shape.offsetWidth; // trigger reflow
+      void shape.offsetWidth; 
 
-      // Add new shape class
+      
       shape.classList.add(newShape);
 
-      // Animate
+      
       shape.style.transform = 'rotateY(360deg)';
       setTimeout(() => {
         shape.style.transform = 'rotateY(0deg)';
